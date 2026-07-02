@@ -3,7 +3,8 @@ let dsclogo = document.getElementById("dsclogo")
 let web = document.getElementById("wb")
 let wbe = document.getElementById("wbe")
 let wbee = document.getElementById("wbbe")
-
+let btng = document.getElementById("aigejagij")
+const result = document.getElementById("rslt");
 
 wbstrct.addEventListener('click', (e) => {
     window.open("https://github.com/kirobotdev/Qxtools")
@@ -12,6 +13,20 @@ wbstrct.addEventListener('click', (e) => {
 dsclogo.addEventListener('click', (e) => {
     window.open("https://discord.gg/sorry-i-dont-have-discord")
 })
+
+btng.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const el = document.getElementById("rslt");
+
+    const y = el.getBoundingClientRect().top + window.pageYOffset;
+
+    window.scrollTo({
+        top: y,
+        left: 0,
+        behavior: "smooth"
+    });
+});
 
 setInterval(() => {
     web.style.opacity = "100%"
