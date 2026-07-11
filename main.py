@@ -6,7 +6,9 @@ import winreg
 def projet():
     os.system("cls")
 
+
     # def install_qx():
+
     #     folder = os.path.join(os.environ["USERPROFILE"], "qx_tool")
     #     os.makedirs(folder, exist_ok=True)
 
@@ -49,6 +51,7 @@ def projet():
             "Web Structure",
             "Base Structure",
             "Ai Structure", 
+            "Tkinter Structure",
             "Quit"
         ]
     ).ask()
@@ -201,6 +204,86 @@ background-color: black;
 
         else:
             print(f"choisis une réponse valide sois Oui sois Non ta réponse actuel etais ( {sur} )")
+
+    elif choix == "Tkinter Structure":
+        os.system("cls")
+        sur = input("Êtes-vous sûr de votre choix ? (Oui ou Non) : ").lower()
+
+        if sur == "oui":
+            os.system("cls")
+            print("Votre structure Tkinter est en train d'être créée...")
+            time.sleep(1)
+            os.system("cls")
+
+            try:
+                os.makedirs("src", exist_ok=True)
+
+                with open("src/main.py", "w", encoding="utf-8") as fichier:
+                    fichier.write("""import tkinter as tk
+
+root = tk.Tk()
+root.title("QxTools")
+root.geometry("800x600")
+root.configure(bg="#1e1e1e")
+
+title = tk.Label(
+    root,
+    text="QxTools",
+    font=("Arial", 28, "bold"),
+    bg="#1e1e1e",
+    fg="white"
+)
+title.pack(pady=(50, 10))
+
+subtitle = tk.Label(
+    root,
+    text="Bienvenue sur QxTools !, Cliquez sur le bouton ci-dessous pour accéder au GitHub.",
+    font=("Arial", 12),
+    bg="#1e1e1e",
+    fg="#cfcfcf",
+    justify="center"
+)
+subtitle.pack(pady=10)
+
+github_button = tk.Button(
+    root,
+    text="GitHub",
+    font=("Arial", 13, "bold"),
+    bg="#2ea043",
+    fg="white",
+    activebackground="#238636",
+    activeforeground="white",
+    relief="flat",
+    padx=20,
+    pady=10,
+    cursor="hand2",
+    command=lambda: webbrowser.open("https://github.com/KirobotDev/QxTools")
+)
+github_button.pack(pady=30)
+
+footer = tk.Label(
+    root,
+    text="© 2026 KirobotDev",
+    font=("Arial", 10),
+    bg="#1e1e1e",
+    fg="#808080"
+)
+footer.pack(side="bottom", pady=15)
+
+root.mainloop()
+""")
+
+                print("Votre structure Tkinter a été créée avec succès.")
+
+            except Exception as e:
+                print(f"Erreur : {e}")
+
+        elif sur == "non":
+            print("Au revoir")
+            time.sleep(2)
+
+        else:
+            print(f"Choisissez une réponse valide. Vous avez répondu : {sur}")
 
     elif choix == "Quit":
         print("Bon bah salut ;)")
