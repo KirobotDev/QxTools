@@ -7,8 +7,6 @@ def projet():
     os.system("cls")
 
 
-     # def install_qx():
-
     # def install_qx():
 
     #     folder = os.path.join(os.environ["USERPROFILE"], "qx_tool")
